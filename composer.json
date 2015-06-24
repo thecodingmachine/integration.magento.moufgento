@@ -1,0 +1,30 @@
+{
+    "name": "mouf/integration.magento.moufgento",
+    "description": "Moufgento is a modern MVC framework for Magento, based on the Splash MVC framework (designed for Mouf-PHP).",
+    "keywords": ["magento", "mvc", "splash", "mouf"],
+    "homepage": "https://github.com/thecodingmachine/integration.magento.moufgento",
+    "type": "mouf-library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "David Négrier",
+            "email": "d.negrier@thecodingmachine.com",
+            "homepage": "http://mouf-php.com"
+        }
+    ],
+    "require": {
+    	  "php": ">=5.3.0",
+        "mouf/integration.magento.moufgento-magentomodule": "~1.0",
+        "mouf/mvc.splash-common": "~7.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Mouf\\Mouf\\Integration\\Magento\\": "src/"
+        }
+    },
+    "extra" : {
+		"mouf" : {
+			"logo" : "logo.png"
+		}
+	}
+}
