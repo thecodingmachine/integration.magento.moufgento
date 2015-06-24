@@ -17,6 +17,9 @@
         "mouf/integration.magento.moufgento-magentomodule": "~1.0",
         "mouf/mvc.splash-common": "~7.0"
     },
+    "provide": {
+        "mouf/mvc.splash-implementation": "~7.0"
+    },
     "autoload": {
         "psr-4": {
             "Mouf\\Mouf\\Integration\\Magento\\": "src/"
