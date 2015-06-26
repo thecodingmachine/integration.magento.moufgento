@@ -64,6 +64,12 @@ class MoufgentoInstaller implements PackageInstallerInterface {
         $moufgentoRenderer->getProperty("priority")->setValue(0);
         $magentoTemplate->getProperty("templateRenderer")->setValue($moufgentoRenderer);
 
+        if ($moufManager->has('userService')) {
+            // Remove user service installed by default.
+            $moufManager->removeComponent('userService');
+        }
+        InstallUtils::getOrCreateInstance('userService', 'Mouf\\Integration\\Magento\\MagentoUserService', $moufManager);
+
         // Let's rewrite the MoufComponents.php file to save the component
         $moufManager->rewriteMouf();
     }

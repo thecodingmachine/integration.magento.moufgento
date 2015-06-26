@@ -46,17 +46,6 @@ class MagentoTemplate extends BaseTemplate {
     }
 
     public function toHtml() {
-
-        // TODO: implement behaviour for setTitle, weblibrarymanager and templaterenderer!!!!
-        // TODO: implement behaviour for setTitle, weblibrarymanager and templaterenderer!!!!
-        // TODO: implement behaviour for setTitle, weblibrarymanager and templaterenderer!!!!
-        // TODO: implement behaviour for setTitle, weblibrarymanager and templaterenderer!!!!
-        // TODO: implement behaviour for setTitle, weblibrarymanager and templaterenderer!!!!
-        // TODO: implement behaviour for setTitle, weblibrarymanager and templaterenderer!!!!
-        // TODO: implement behaviour for setTitle, weblibrarymanager and templaterenderer!!!!
-        // TODO: implement behaviour for setTitle, weblibrarymanager and templaterenderer!!!!
-        // TODO: implement behaviour for setTitle, weblibrarymanager and templaterenderer!!!!
-
         $this->toHtmlTriggered = true;
         $this->getDefaultRenderer()->setTemplateRenderer($this->getTemplateRenderer());
     }

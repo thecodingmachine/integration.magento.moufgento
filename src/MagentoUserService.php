@@ -3,6 +3,7 @@ namespace Mouf\Integration\Magento;
 
 
 use Mouf\Security\UserService\UserServiceInterface;
+use \Mage;
 
 /**
  * A special implementation of Mouf's user service that uses Magento in the shadows.

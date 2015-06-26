@@ -33,6 +33,20 @@
                 "type" : "class",
                 "class" : "Mouf\\Integration\\Magento\\MoufgentoInstaller"
             }
+            ],
+            "doc" : [{
+                "title" : "Writing controllers and views",
+                "url" : "doc/mvc.md"
+            }, {
+                "title" : "Scripts and styles",
+                "url" : "doc/scripts-and-styles.md"
+            }, {
+                "title" : "Writing in blocks",
+                "url" : "doc/blocks.md"
+            }, {
+                "title" : "Authentication and authorization",
+                "url" : "doc/authentication_and_right_management.md"
+            }
             ]
 		}
 	}
