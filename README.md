@@ -15,10 +15,10 @@ Moufgento offers the following features:
 - use of **annotations** in your controllers (for instance: `@URL` to declare a new route, `@Logged` to restrict access to logged users, etc...)
 - support for any kind of **views** supported in Splash MVC (this includes plain PHP files, [Twig templates](http://twig.sensiolabs.org/), etc...)
 - a [nice web-based UI to scafold your controllers and views](http://mouf-php.com/packages/mouf/mvc.splash/doc/writing_controllers.md)
-- integration of your views inside the Wordpress theme
+- integration of your views inside the Magento theme
 - (very) easy Ajax support
-- TODO: integration of Mouf's [**authentication and authorization**](doc/authentication_and_right_management.md) system into Wordpress
-- TODO: integration of Mouf's [**web library (JS/CSS)**](doc/scripts-and-styles.md) system into Wordpress
+- integration of Mouf's [**authentication**](doc/authentication_and_right_management.md) system into Magento
+- integration of Mouf's [**web library (JS/CSS)**](doc/scripts-and-styles.md) system into Magento
 
 Moufgento has been tested with Magento CE 1.9.
 

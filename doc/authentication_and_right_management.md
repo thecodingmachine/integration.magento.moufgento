@@ -1,31 +1,24 @@
-TODOOOOOOOOOOOOOOOOOOOOOOOOOOO
-
 Authentication and authorization
 ================================
 
-Wordpress features a complete user management system. It also features a system to manage authorization via 
-[Roles and capabilities](https://codex.wordpress.org/Roles_and_Capabilities).
+Magento features a complete user management system. Unlike Mouf, Magento's front does not 
+feature a system to manage authorization via permissions. Customers can be stored in groups, but
+Magento does not allow to bind those groups to special permissions.
+Magento's back-office has this capability, but this is out of Moufgento scope.
 
-Mouf on the other hand features an authentication system named [UserService](http://mouf-php.com/packages/mouf/security.userservice/README.md)
+Mouf features an authentication system named [UserService](http://mouf-php.com/packages/mouf/security.userservice/README.md)
 and a authorization system named [RightsService](http://mouf-php.com/packages/mouf/security.rightsservice/README.md).
-The rights service in Mouf has the notion of "right" that maps the notion of "capability" in Wordpress. The notion
-of "role" in Mouf is voluntarily absent (in order to allow developers to add whatever they want).
 
-When you install Moufpress, the install process will create 2 instances related to authentication and authorization:
+Moufgento only maps the user service of Mouf to Magento user management system. Nothing is done for the right service
+since the permissions notion does not exist natively in Magento.
 
-- `userService` : an instance of the `MoufpressUserService` class that is compatible with the `UserServiceInterface`
-- `rightsService` : an instance of the `MoufpressRightService` class that is compatible with the `RightServiceInterface`
+When you install Moufgento, the install process will create one instance related to authentication:
 
-Many packages in Mouf rely on those 2 instances so installing those will allow those packages to integrate directly with 
-Wordpress rights.
+- `userService` : an instance of the `MagentoUserService` class that is compatible with the `UserServiceInterface`
 
-<div class="alert alert-info">Note: if you want to create additional rights in Mouf, you have to declare additional 
-capabilities (since Mouf's right = Wordpress capability). These capabilities can be created using the 
-<a href="https://codex.wordpress.org/Function_Reference/add_cap"><code>add_cap</code></a> Wordpress function. You can also
-manage roles and capabilities using many well designed plugins like <a href="http://www.im-web-gefunden.de/wordpress-plugins/role-manager/">role-manager</a>.
-</div>
+Many Mouf packages rely on the `userService`, and therefore, can be fed the `MagentoUserService`.
 
-A few exemples of what you can do with these objects:
+A few examples of what you can do with this objects:
 
 ```php
 // Connects the user
@@ -36,7 +29,16 @@ $isLogged = Mouf::getUserService()->isLogged();
 
 // Returns the login of the current logged user
 $login = Mouf::getUserService()->getUserLogin();
+```
 
-// Returns whether the logged user has rights to 'read' articles (mapping the 'read' capability in Wordpress)
-$isAllowed = Mouf::getRightsService()->isAllowed('read');
+You can also use the `@Logged` annotation in your actions code to force a user to be logged to access some URL:
+
+```php
+/**
+ * @URL my-protected-url/
+ * @Logged
+ */
+function index() {
+    // You must be logged to access this page
+}
 ```

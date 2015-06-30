@@ -9,13 +9,11 @@ implementing the [`HtmlElementInterface`](https://github.com/thecodingmachine/ht
 Moufgento's MagentoTemplate comes with a feature that lets you add HTML in any block already defined in Magento (i.e. 
 you can add objects implementing the `HtmlElementInterface` in any Magento block dynamically.
 
-![Moufgento widget](doc/widget.png)
+For this, you simply have to edit the 
 
-Have a look at the screenshot of the widgets panel above. You can directly select a Mouf instance to be displayed from
-the Moufgento widget.
+![Moufgento blocks](doc/blocks.png)
 
-**Note:** if you want to control on which page your widget is displayed, you might want to have a look at the excellent 
-[Display Widgets Plugin](https://wordpress.org/plugins/display-widgets/).
+Have a look at the screenshot of the Mouf admin above. You can map in the template a Mouf block to a Magento block.
 
 What can I use this for?
 ------------------------
