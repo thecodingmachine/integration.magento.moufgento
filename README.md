@@ -1,5 +1,5 @@
-Moufgento: a modern MVC framework for Magento based on Mouf
-===========================================================
+Moufgento: a modern MVC framework for Magento based on Mouf and PSR-7
+=====================================================================
 
 Why should I care?
 ------------------
@@ -9,16 +9,21 @@ used by [Mouf-PHP](http://mouf-php.com) (a dependency injection based framework)
 
 Magento comes with a very heavy framework, based on Zend Framework 1. It is definitely very powerful, allowing to overload almost any part of the application. Yet, it is somewhat old and lacks the modern features we have come to love in the current MVC frameworks, like dependency injection, annotations support, few or no XML configuration files... For these reasons, if you find yourself with a need to do a massive custom application inside Magento, you might want to use something else than Magento default framework.
 
+Moufgento is at the same time a module for Magento that adds PSR-7 compatible middleware support AND an integration of Splash, 
+the default MVC framework that comes with Mouf and that is provided as a middleware.
+
 Moufgento offers the following features:
 
-- **controllers**, declared through a nice graphical DI container
-- use of **annotations** in your controllers (for instance: `@URL` to declare a new route, `@Logged` to restrict access to logged users, etc...)
-- support for any kind of **views** supported in Splash MVC (this includes plain PHP files, [Twig templates](http://twig.sensiolabs.org/), etc...)
-- a [nice web-based UI to scafold your controllers and views](http://mouf-php.com/packages/mouf/mvc.splash/doc/writing_controllers.md)
-- integration of your views inside the Magento theme
-- (very) easy Ajax support
-- integration of Mouf's [**authentication**](doc/authentication_and_right_management.md) system into Magento
-- integration of Mouf's [**web library (JS/CSS)**](doc/scripts-and-styles.md) system into Magento
+- The ability to plug any zend/stratigility middleware (i.e. PSR-7 Middleware) in Magento
+- A default router (Splash) with
+    - **controllers**, declared through a nice graphical DI container
+    - use of **annotations** in your controllers (for instance: `@URL` to declare a new route, `@Logged` to restrict access to logged users, etc...)
+    - support for any kind of **views** supported in Splash MVC (this includes plain PHP files, [Twig templates](http://twig.sensiolabs.org/), etc...)
+    - a [nice web-based UI to scafold your controllers and views](http://mouf-php.com/packages/mouf/mvc.splash/doc/writing_controllers.md)
+    - integration of your views inside the Magento theme
+    - (very) easy Ajax support
+    - integration of Mouf's [**authentication**](doc/authentication_and_right_management.md) system into Magento
+    - integration of Mouf's [**web library (JS/CSS)**](doc/scripts-and-styles.md) system into Magento
 
 Moufgento has been tested with Magento CE 1.9.
 
@@ -35,30 +40,32 @@ You will first need to install Magento and Mouf side by side.
    This means you should have the **composer.json** file of Composer in the same directory as the **index.php** of Magento.
 3. Modify **composer.json** and add the **moufgento** module. Your **composer.json** should contain at least these lines:
 
-		{
-      "repositories": [
-        {
-            "type": "composer",
-            "url": "http://packages.firegento.com"
-        },
-        {
-            "type": "vcs",
-            "url": "https://github.com/magento-hackathon/magento-composer-installer"
+```json
+{
+    "repositories": [
+    {
+        "type": "composer",
+        "url": "http://packages.firegento.com"
+    },
+    {
+        "type": "vcs",
+        "url": "https://github.com/magento-hackathon/magento-composer-installer"
+    }
+    ],
+    "autoload" : {
+        "psr-0" : {
+            "MyApp" : "src/"
         }
-      ],
-			"autoload" : {
-				"psr-0" : {
-					"MyApp" : "src/"
-				}
-			},
-			"require" : {
+    },
+    "require" : {
         "magento-hackathon/magento-composer-installer": "*",
-				"mouf/mouf" : "~2.0",
-				"mouf/integration.magento.moufgento" : "~1.0",
-			},
-			"minimum-stability" : "dev",
-			"prefer-stable": true
-		}
+        "mouf/mouf" : "~2.0",
+        "mouf/integration.magento.moufgento" : "~1.0",
+    },
+    "minimum-stability" : "dev",
+    "prefer-stable": true
+}
+```
 
    Do not forget to customize your vendor name (the `MyApp` part of the autoloader section).
 4. Create the empty `src/` directory at the root of your project.
