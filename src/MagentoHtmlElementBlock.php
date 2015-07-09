@@ -23,4 +23,7 @@ class MagentoHtmlElementBlock extends \Mage_Core_Block_Template {
         $this->block->toHtml();
     }
 
+    public function getMoufBlock() {
+    	return $this->block;
+    }
 }
