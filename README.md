@@ -71,8 +71,20 @@ You will first need to install Magento and Mouf side by side.
 4. Create the empty `src/` directory at the root of your project.
 5. Run the install process in Mouf: connect to Mouf UI and run the install process for all the packages
    (including Moufgento install process of course)
+6. You have now to patch the Magento Autoloader because there is [some weird issue with the `class_exists` function](http://www.webguys.de/magento/tuerchen-11-the-magento-autoloader-and-external-libraries/) .
+   First, copy `app/code/core/Varien/Autoload.php` into `app/code/local/Varien/Autoload.php`
+   Then, in the `autoload` method, replace :
 
+```php
+return include $classFile;
+```
 
+   By
+
+```php
+return @include $classFile;
+
+```
 
 Getting started
 ---------------
