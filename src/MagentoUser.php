@@ -17,6 +17,16 @@ class MagentoUser implements UserInterface {
 
 
     /**
+     * Returns the Object for the current user.
+     *
+     * @return \Mage_Customer_Model_Customer
+     */
+    public function getCustomer()
+    {
+        return $this->customer;
+    }
+
+    /**
      * Returns the ID for the current user.
      *
      * @return string
