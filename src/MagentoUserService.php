@@ -10,6 +10,12 @@ use \Mage;
  */
 class MagentoUserService implements UserServiceInterface {
 
+    private $redirect_url = '/';
+
+    public function setRedirectUrl($url) {
+        $this->redirect_url = $url;
+    }
+
     /**
      * Logs the user using the provided login and password.
      * Returns true on success, false if the user or password is incorrect.
@@ -78,7 +84,8 @@ class MagentoUserService implements UserServiceInterface {
      */
     public function redirectNotLogged()
     {
-        // TODO: Implement redirectNotLogged() method.
+        header('HTTP/1.0 403 Forbidden');
+        header("Location: ". $this->redirect_url); exit();
     }
 
     /**
