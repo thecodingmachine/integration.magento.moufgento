@@ -15,6 +15,7 @@
     "require": {
         "php": ">=5.3.0",
         "mouf/integration.magento.moufgento-magentomodule": "~1.0",
+        "mouf/html.template.templateinterface": "~2.0",
         "mouf/mvc.splash-common": "~7.0",
         "mouf/security.userservice-splash" : "~4.0"
     },
